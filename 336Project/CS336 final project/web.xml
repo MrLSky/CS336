@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+    version="3.0">
+
+  <display-name>cs336project</display-name>
+
+  <!-- LoginServlet -->
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- One-way SearchServlet -->
+  <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Round-Trip SearchServlet -->
+  <servlet>
+    <servlet-name>RoundTripServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.RoundTripServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoundTripServlet</servlet-name>
+    <url-pattern>/RoundTripServlet</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- BookingServlet -->
+  <servlet>
+    <servlet-name>BookingServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingServlet</servlet-name>
+    <url-pattern>/BookingServlet</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- MyBookingsServlet -->
+  <servlet>
+    <servlet-name>MyBookingsServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.MyBookingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyBookingsServlet</servlet-name>
+    <url-pattern>/MyBookingsServlet</url-pattern>
+  </servlet-mapping>
+
+<!-- Browse all Q&A -->
+<servlet>
+  <servlet-name>BrowseQAServlet</servlet-name>
+  <servlet-class>com.cs336.pkg.BrowseQAServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>BrowseQAServlet</servlet-name>
+  <url-pattern>/BrowseQAServlet</url-pattern>
+</servlet-mapping>
+
+<!-- Search Q&A -->
+<servlet>
+  <servlet-name>SearchQAServlet</servlet-name>
+  <servlet-class>com.cs336.pkg.SearchQAServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>SearchQAServlet</servlet-name>
+  <url-pattern>/SearchQAServlet</url-pattern>
+</servlet-mapping>
+
+
+<!-- Post a new question -->
+<servlet>
+  <servlet-name>PostQuestionServlet</servlet-name>
+  <servlet-class>com.cs336.pkg.PostQuestionServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>PostQuestionServlet</servlet-name>
+  <url-pattern>/PostQuestionServlet</url-pattern>
+</servlet-mapping>
+
+
+  <!-- Browse all flights -->
+  <servlet>
+    <servlet-name>BrowseFlightsServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.BrowseFlightsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BrowseFlightsServlet</servlet-name>
+    <url-pattern>/BrowseFlightsServlet</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- CancelServlet declaration -->
+  <servlet>
+    <servlet-name>CancelServlet</servlet-name>
+    <servlet-class>com.cs336.pkg.CancelServlet</servlet-class>
+  </servlet>
+  <!-- CancelServlet mapping -->
+  <servlet-mapping>
+    <servlet-name>CancelServlet</servlet-name>
+    <url-pattern>/CancelServlet</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- === Customer‐only pages === -->
+  <filter>
+    <filter-name>CustomerAuthFilter</filter-name>
+    <filter-class>com.cs336.pkg.CustomerAuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CustomerAuthFilter</filter-name>
+    <!-- lock down every servlet the customer uses: -->
+    <url-pattern>/SearchServlet</url-pattern>
+    <url-pattern>/RoundTripServlet</url-pattern>
+    <url-pattern>/FlexibleSearchServlet</url-pattern>
+    <url-pattern>/BrowseQaServlet</url-pattern>
+    <url-pattern>/SearchQaServlet</url-pattern>
+    <url-pattern>/PostQuestionServlet</url-pattern>
+    <url-pattern>/BookServlet</url-pattern>
+    <url-pattern>/MyBookingsServlet</url-pattern>
+    <url-pattern>/CancelServlet</url-pattern>
+  </filter-mapping>
+
+  <!-- Default landing page -->
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
+
+
